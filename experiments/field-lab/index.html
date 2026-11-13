@@ -11,8 +11,9 @@
 <div class="card"><h2>Agent tool interface</h2><p class="hint">Structured operations exposed as window.labTools. No external model is connected yet; these are real local functions operating on the live world.</p><div class="row"><button class="primary" id="inspect">inspect_world()</button><button id="trial">run_trial()</button></div><input id="toolInput" aria-label="Tool call JSON" value='{"tool":"apply_force","args":{"id":"orb-a","x":2,"y":5,"z":0}}'><button id="invoke" style="width:100%">Invoke tool call</button><pre id="toolOutput">Awaiting first inspection…</pre></div>
 <div class="card"><h2>Event trace</h2><div class="log" id="log" aria-live="polite"></div></div>
 </aside></main><footer>Prototype boundary: this browser environment exposes a structured tool API, but is not yet connected to an external AI model or MCP server. Tool calls run locally. No data leaves this page.</footer>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js"}}</script>
 <script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
+import * as THREE from 'three';
 import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/controls/OrbitControls.js';
 const canvas=document.querySelector('#world'),renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(canvas.clientWidth,canvas.clientHeight,false);renderer.shadowMap.enabled=true;
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x080f19);scene.fog=new THREE.Fog(0x080f19,22,55);
